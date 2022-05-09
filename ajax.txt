@@ -1,0 +1,57 @@
+$("input[type='radio']").click(function(){
+ var hiring_type = $("input[name='hiring_for']:checked").val();
+
+if(hiring_type=='CSA')
+{
+    var dataString = "hiring_type="+hiring_type;
+    $.ajax({
+
+                    type: "POST",
+                    dataType: 'json',
+                    url: "<?php echo base_url() . 'index.php/EMPLOYEE/Employee/get_department/'; ?>",
+                    data: dataString,
+                    success: function (data)
+                    {
+                                        
+                    var dept = $('#department');
+                    dept.empty();
+
+                    $.each(data.value, function (index, item) {
+                    var option = $("<option />");
+                    option.html(item.dept_name);
+                    option.val(item.dept_id);    
+                    desig.append(option);
+                });
+                   
+                   
+                    }
+            }); 
+    
+}
+else{
+
+var dataString = "hiring_type="+hiring_type;
+    $.ajax({
+
+                    type: "POST",
+                    dataType: 'json',
+                    url: "<?php echo base_url() . 'index.php/EMPLOYEE/Employee/get_department/'; ?>",
+                    data: dataString,
+                    success: function (data)
+                    {
+                                        
+                    var dept = $('#department');
+                    dept.empty();
+
+                    $.each(data.value, function (index, item) {
+                    var option = $("<option />");
+                    option.html(item.dept_name);
+                    option.val(item.dept_id);    
+                    desig.append(option);
+                });
+                   
+                   
+                    }
+            }); 
+
+}
