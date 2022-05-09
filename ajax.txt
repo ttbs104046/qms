@@ -1,7 +1,7 @@
 $("input[type='radio']").click(function(){
  var hiring_type = $("input[name='hiring_for']:checked").val();
 
-if(hiring_type=='CSAass')
+if(hiring_type=='CSAassfff')
 {
     var dataString = "hiring_type="+hiring_type;
     $.ajax({
